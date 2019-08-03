@@ -45,14 +45,14 @@ class CartController extends Controller
 	 * @return 
 	 */
 	public function update(){
-		
 		$cart = auth()->user()->cart;
 		if($cart->details->count() > 0){
 			$cart->status = 'Pending';
 			$cart->save(); //update
 			$notification = 'Tu pedido se ha registrado correctamente. te contactaremos pronto via mail.';
+			$type='success';
 		}else{
-			$type='error';
+			$type='info';
 			$notification = 'Debes registrar al menos un producto para realizar un pedido';
 		}
 

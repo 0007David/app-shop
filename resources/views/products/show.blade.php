@@ -21,7 +21,7 @@
 					    	<img src="{{ $product->featured_image_url }}" alt="Circle Image" class="img-raised rounded-circle img-fluid">
 						</div>
 
-						
+
 						<div class="name">
 					    	<h2 class="title">{{$product->name}}</h2>
 					    	<h4>{{ $product->category->name }}</h4>
@@ -36,7 +36,7 @@
 		  		<p>{{ $product->long_description }} </p>
 				<br>
 				@if (session('notification'))
-		          <div class="alert alert-success">
+		        	<div class="alert alert-success">
 		            <div class="container">
 		              <div class="alert-icon">
 		                <i class="material-icons">check</i>
@@ -44,14 +44,32 @@
 		              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
 		                <span aria-hidden="true"><i class="material-icons">clear</i></span>
 		              </button>
-		              <b>Exito:  </b> {{ session('notification') }}
+		              <b>Alerta de Exito :  </b> {{ session('notification') }}
 		            </div>
 		          </div>
 		        @endif
 		        <br>
-				<button class="btn btn-primary btn-round" data-toggle="modal" data-target="#ModalProductAdd">
+		        @if(auth()->user())
+					<button class="btn btn-primary btn-round" data-toggle="modal" data-target="#ModalProductAdd">
+		                <i class="material-icons">add_shopping_cart</i> Añadir al carrito de compra
+		            </button>
+	            @else
+	            	<div class="alert alert-info">
+			            <div class="container">
+			              <div class="alert-icon">
+			                <i class="material-icons">info</i>
+			              </div>
+			              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			                <span aria-hidden="true"><i class="material-icons">clear</i></span>
+			              </button>
+			              <b>Info Alert :  </b>Necesitar iniciar sesión para realizar tu pedido de tu producto.
+			            </div>
+		          </div>
+		          <br>
+	            	<a href="{{url('/login')}}" class="btn btn-primary btn-round">
 	                <i class="material-icons">add_shopping_cart</i> Añadir al carrito de compra
-	            </button>
+	            	</a>
+	            @endif
 	            <!-- <i class="material-icons">library_books</i> -->
 	              
 			</div>

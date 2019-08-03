@@ -17,19 +17,19 @@
     <div class="section text-center">
       <h2 class="title">Dashboard</h2>
         <br>
-        @if (session('notification') && session('notification') )
-          <div class="alert alert-warning">
+        @if (session('notification') && session('type') == 'info' )
+          <div class="alert alert-info">
             <div class="container">
               <div class="alert-icon">
-                <i class="material-icons">warning</i>
+                <i class="material-icons">info</i>
               </div>
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true"><i class="material-icons">clear</i></span>
               </button>
-              <b>Warning :  </b> {{ session('notification') }}
+              <b>Info Alert :  </b> {{ session('notification') }}
             </div>
           </div>
-        @elseif(session('notification'))
+        @elseif(session('notification') && session('type') == 'success')
           <div class="alert alert-success">
             <div class="container">
               <div class="alert-icon">
@@ -38,7 +38,7 @@
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true"><i class="material-icons">clear</i></span>
               </button>
-              <b>Exito:  </b> {{ session('notification') }}
+              <b>Exito Alter:  </b> {{ session('notification') }}
             </div>
           </div>
         @endif
