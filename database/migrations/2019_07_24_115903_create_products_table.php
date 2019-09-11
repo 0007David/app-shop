@@ -12,14 +12,19 @@ class CreateProductsTable extends Migration
      * @return void
      */
     public function up()
-    {
+    { //PROUCTO(id,nombre,descripcion,descripcion__larga, precio_base,cantidad_base, stock, Stock_ocupado,categoria_id)
         Schema::create('products', function (Blueprint $table) {
             $table->bigIncrements('id');
 
             $table->string('name',150);
             $table->string('description',200);
             $table->text('long_description')->nullable();
-            $table->float('price');
+            $table->float('price'); //precio_base
+            // $table->float('base_price'); //precio_base
+            //nuevos atributos
+            // $table->tinyInteger('base_amount'); //cantidad_base
+            // $table->tinyInteger('stock');
+            // $table->tinyInteger('busy_stock');
 
             //Foreign Key
             $table->unsignedBigInteger('category_id')->nullable();
