@@ -13,4 +13,14 @@ class Category extends Model{
     	
     	return $this->hasMany(Product::class);
     }
+
+    public function getImageAttribute(){
+        
+    	if( !isset($this->attributes['image']) ){
+    		return '/images/categories/default/default.png';
+        }
+
+    	return '/images/categories/' .$this->attributes['image'];
+
+    }
 }

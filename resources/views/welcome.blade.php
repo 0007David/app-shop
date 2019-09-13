@@ -12,7 +12,7 @@
           <h1 class="title">Bienbenido a App Shop</h1>
           <h4>Realiza tus pedidos en línea y te contactaremos para coordinar la entrega hasta la puerta de tu casa.</h4>
           <br>
-          <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="btn btn-danger btn-raised btn-lg">
+          <a href="https://www.youtube.com/watch?v=oofSnsGkops&list=RDoofSnsGkops&start_radio=1" target="_blank" class="btn btn-danger btn-raised btn-lg">
             <i class="fa fa-play"></i> ¿Cómo funciona?
           </a>
         </div>

@@ -14,7 +14,7 @@
    <!-- CSS Files -->
    <link href="{{ asset('css/material-kit.css?v=2.0.5') }}" rel="stylesheet" />
    <!-- CSS Just for demo purpose, don't include it in your project -->
-   <link href="{{ asset('demo/demo.css') }}" rel="stylesheet" />
+   <!-- <link href="{{ asset('demo/demo.css') }}" rel="stylesheet" /> -->
 </head>
 
 <body class="@yield('body-class')">
@@ -58,15 +58,19 @@
                       </a>
                       @if ( Auth::user()->admin )
                       <a href="{{ url('/admin/products') }}" class="dropdown-item">
-                        <i class="material-icons">apps</i> Gestionar Productos
+                        <i class="material-icons">apps</i> Productos
+                      </a>
+                      <a href="{{ url('/admin/categories') }}" class="dropdown-item">
+                        <i class="material-icons">apps</i> Categorías
+                      </a>
+                      <a href="#" class="dropdown-item">
+                        <i class="material-icons">list</i> Combos
+                      </a>
+                      <a href="#" class="dropdown-item">
+                        <i class="material-icons">face</i> Clientes
                       </a>
                       @endif 
-                      <a href="#" class="dropdown-item">
-                        <i class="material-icons">list</i> Categoría
-                      </a>
-                      <a href="#" class="dropdown-item">
-                        <i class="material-icons">face</i> Cliente
-                      </a>
+                      
                       <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();"><i class="material-icons">layers</i>
