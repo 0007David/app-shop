@@ -15,6 +15,15 @@ class Product extends Model {
     }
 
     /**
+     * Metodo que define la relacion de la tabla Producto -> Unidad
+     */
+    public function units(){
+
+        return $this->hasMany(ProductUnit::class);
+    }
+
+    
+    /**
      * Metodo que defina la relacion de la tabla Product -> productImage
      */
     public function images() {
@@ -44,5 +53,12 @@ class Product extends Model {
             return $descripcion;
 
         return substr($descripcion, 0,50)."...";
+    }
+
+    public function getAvailableAttribute(){
+
+        $avilable = $this->stock - $this->busy_stock;
+
+        return $avilable;
     }
 }

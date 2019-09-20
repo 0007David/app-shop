@@ -8,7 +8,6 @@
 <div class="page-header header-filter" data-parallax="true" style="background-image: url('{{ asset('img/profile_city.jpg') }}')">
     
 </div>
-
 <!-- div-pricipal -->
 <div class="main main-raised">
   <!-- div-contendor -->
@@ -35,6 +34,7 @@
             <tbody>
 
                 @foreach ($products as $product)
+                
                 <tr>
                     <td style="width:4px">{{ $product->id }}</td>
                     <td>{{ $product->name }}</td>
@@ -42,12 +42,9 @@
                     <td>{{ $product->category ? $product->category->name : 'General' }}</td>
                     <td >${{ $product->price }}</td>
                     <td class="td-actions text-right">
-                      
+                        
                         <form style="display: inline" method="post" action="{{ url('/admin/products/'.$product->id.'/delete') }}">
                           @csrf
-                        <button type="button" data-toggle="tooltip" data-placement="top" title="ver info" class="btn btn-info btn-round btn-sm">
-                            <i class="material-icons md-36">info</i>
-                        </button>
                         <a href="{{ url('/admin/products/'.$product->id.'/edit') }}" data-toggle="tooltip" data-placement="top" title="Editar" class="btn btn-success btn-round btn-sm">
                             <i class="material-icons md-36">edit</i>
                         </a>

@@ -42,7 +42,7 @@
             </div>
           </div>
         @endif
-          <ul class="nav nav-pills nav-pills-success nav-pills-icons" role="tablist">
+          <ul style="display: inline-flex;" class="nav nav-pills nav-pills-success nav-pills-icons" role="tablist">
           <!--
                           color-classes: "nav-pills-primary", "nav-pills-info", "nav-pills-success", "nav-pills-warning","nav-pills-danger"
                       -->
@@ -51,13 +51,15 @@
               <i class="material-icons">shopping_cart</i> Carrito compra
             </a>
           </li>
+          @if(auth()->user()->admin)
           <li class="nav-item">
-            <a class="nav-link" href="#" role="tab" data-toggle="tab" aria-selected="false">
+            <a class="nav-link" href="{{ url('/admin/events') }}">
               <i class="material-icons">schedule</i> Schedule
             </a>
           </li>
+          @endif
           <li class="nav-item">
-            <a class="nav-link" href="#tasks-1" role="tab" data-toggle="tab" aria-selected="false">
+            <a class="nav-link" href="{{ url('/admin/order') }}">
               <i class="material-icons">list</i> Pedidos realizados
             </a>
           </li>
@@ -108,12 +110,11 @@
             </tbody>
 
           </table>
-        <form method="post" action="{{url('/order')}}">
-          @csrf
-          <button class="btn btn-primary btn-round" data-toggle="modal" data-target="#ModalProductAdd">
+        
+          <a href="{{ url('/order') }}" class="btn btn-primary btn-round">
                         <i class="material-icons">done</i> Realizar Pedido
-          </button>
-        </form>
+          </a>
+        
     </div>
     
   </div>

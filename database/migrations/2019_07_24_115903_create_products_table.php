@@ -19,12 +19,11 @@ class CreateProductsTable extends Migration
             $table->string('name',150);
             $table->string('description',200);
             $table->text('long_description')->nullable();
-            $table->float('price'); //precio_base
-            // $table->float('base_price'); //precio_base
+            $table->float('price'); //precio_base 
+            $table->integer('base_quantity')->nullable(); //cantidad_base 
             //nuevos atributos
-            // $table->tinyInteger('base_amount'); //cantidad_base
-            // $table->tinyInteger('stock');
-            // $table->tinyInteger('busy_stock');
+            $table->bigInteger('stock')->nullable();  //cantidad total del producto
+            $table->bigInteger('busy_stock')->nullable(); //cantidad prestada en un servicio
 
             //Foreign Key
             $table->unsignedBigInteger('category_id')->nullable();

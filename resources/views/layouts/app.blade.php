@@ -11,10 +11,30 @@
    <!--     Fonts and icons     -->
    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+       <!-- Plugin FullCallender -->
+ <!--  <link rel="stylesheet" href="{{ asset('css/fullcalendar.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/fullcalendar.print.min.css') }}" media="print">
+  <link rel="stylesheet" href="{{ asset('css/AdminLTE.min.css') }}" media="print"> -->
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.css' />
    <!-- CSS Files -->
-   <link href="{{ asset('css/material-kit.css?v=2.0.5') }}" rel="stylesheet" />
-   <!-- CSS Just for demo purpose, don't include it in your project -->
-   <!-- <link href="{{ asset('demo/demo.css') }}" rel="stylesheet" /> -->
+   <link href="{{ asset('css/material-kit.css') }}" rel="stylesheet" />
+
+   <!-- DataTable -->
+   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"/>
+   
+   <link href="{{url('packages/core/main.css')}}" rel="stylesheet" />
+    <link href="{{url('packages/daygrid/main.css')}}" rel="stylesheet" />
+    <link href="{{url('packages/timegrid/main.css')}}" rel="stylesheet" />
+    <link href="{{url('packages/list/main.css')}}" rel="stylesheet" />
+
+    <script src="{{url('packages/core/main.js')}}"></script>
+    <script src="{{url('packages/interaction/main.js')}}"></script>
+    <script src="{{url('packages/daygrid/main.js')}}"></script>
+    <script src="{{url('packages/timegrid/main.js')}}"></script>
+    <script src="{{url('packages/list/main.js')}}"></script>
+
+
+
 </head>
 
 <body class="@yield('body-class')">
@@ -49,6 +69,7 @@
                     <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false">
                       <i class="material-icons md-36">face</i> {{ Auth::user()->name }}
                     </a>
+
                     <div class="dropdown-menu dropdown-with-icons">
                       <!-- <a href="{{ url('/home') }}" class="dropdown-item">
                         <i class="material-icons">dasboard</i> Dasboard
@@ -56,7 +77,21 @@
                       <a href="{{ url('/home') }}" class="dropdown-item">
                         <i class="material-icons">dashboard</i> Dashboard
                       </a>
+                      @if (!Auth::user()->admin )
+                      <a href="{{ url('/') }}" class="dropdown-item">
+                        <i class="material-icons">dashboard</i> Productos
+                      </a>
+                      <a href="{{ url('/') }}" class="dropdown-item">
+                        <i class="material-icons">dashboard</i> Categorias
+                      </a>
+                      @endif
                       @if ( Auth::user()->admin )
+                      <a href="{{ url('/admin/events') }}" class="dropdown-item">
+                        <i class="material-icons">apps</i> Eventos
+                      </a>
+                      <a href="{{ url('/admin/order') }}" class="dropdown-item">
+                        <i class="material-icons">apps</i> Pedidos
+                      </a>
                       <a href="{{ url('/admin/products') }}" class="dropdown-item">
                         <i class="material-icons">apps</i> Productos
                       </a>
@@ -118,10 +153,50 @@
    <script src="{{ asset('/js/plugins/bootstrap-datetimepicker.js') }}"  type="text/javascript"></script>
    <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
    <script src="{{ asset('/js/plugins/nouislider.min.js') }}"  type="text/javascript"></script>
+
+  <!-- fullCalendar -->
+  <!-- <script src="{{ asset('/js/plugins/moment.min.js') }}"></script> -->
+  <!-- <script src="{{ asset('/js/plugins/fullcalendar.min.js') }}"></script> -->
+  
    <!--  Google Maps Plugin    -->
-   <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+   <!-- <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script> -->
+   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBC6Gssuae_XhHbInazo35mIcpIY3xXAJw&callback=initMap"> 
+    </script>
+   <!-- Jquery Sharree btn -->
+   <script src="{{ asset('/js/plugins/jquery.sharrre.js') }}" type="text/javascript"></script>
    <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
-   <script src="{{ asset('/js/material-kit.js?v=2.0.5') }}" type="text/javascript"></script>
+   <script src="{{ asset('/js/material-kit.js') }}" type="text/javascript"></script>
+ <!-- Data table JS -->
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
+<script>
+   $('.datetimepicker').datetimepicker({
+    icons: {
+        time: "fa fa-clock-o",
+        date: "fa fa-calendar",
+        up: "fa fa-chevron-up",
+        down: "fa fa-chevron-down",
+        previous: 'fa fa-chevron-left',
+        next: 'fa fa-chevron-right',
+        today: 'fa fa-screenshot',
+        clear: 'fa fa-trash',
+        close: 'fa fa-remove'
+    }
+});
+
+    $(document).ready(function() {
+    $('.tablas').DataTable( {
+        "language": {
+            "lengthMenu": "Display _MENU_ records per page",
+            "zeroRecords": "Nothing found - sorry",
+            "info": "Showing page _PAGE_ of _PAGES_",
+            "infoEmpty": "No records available",
+            "infoFiltered": "(filtered from _MAX_ total records)"
+        }
+    } );
+} );
+
+ </script>
 </body>
 
 </html>
