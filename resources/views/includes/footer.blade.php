@@ -4,23 +4,18 @@
       <nav class="float-left">
          <ul>
             <li>
-            <a href="https://www.creative-tim.com">
-            Creative Tim
+            <a href="#">
+            Developer dtn
             </a>
             </li>
             <li>
-               <a href="https://creative-tim.com/presentation">
+               <a href="#">
                   About Us
                </a>
             </li>
             <li>
-               <a href="http://blog.creative-tim.com">
+               <a href="#">
                   Blog
-               </a>
-            </li>
-            <li>
-               <a href="https://www.creative-tim.com/license">
-                  Licenses
                </a>
             </li>
          </ul>
