@@ -20,17 +20,6 @@ class ProductsTableSeeder extends Seeder
         // factory(ProductImage::class,200)->create();
         // Model Poblacion atraves de Relaciones
 
-        $categories = factory(Category::class,5)->create();
-
-        $categories->each(function($category) {
-            $products = factory(Product::class,7)->make();
-            $category->products()->saveMany($products);
-
-            $products->each(function($product) {
-                $images = factory(ProductImage::class,3)->make();
-                $product->images()->saveMany($images);
-            });
-
-        });
+        
     }
 }
