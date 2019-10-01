@@ -12,7 +12,7 @@
           <h1 class="title">Bienbenido a App Shop</h1>
           <h4>Realiza tus pedidos en línea y te contactaremos para coordinar la entrega hasta la puerta de tu casa.</h4>
           <br>
-          <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="btn btn-danger btn-raised btn-lg">
+          <a href="https://www.youtube.com/watch?v=oofSnsGkops&list=RDoofSnsGkops&start_radio=1" target="_blank" class="btn btn-danger btn-raised btn-lg">
             <i class="fa fa-play"></i> ¿Cómo funciona?
           </a>
         </div>
@@ -73,24 +73,23 @@
             <div class="col-md-4">
               <div class="team-player">
                 <div class="card card-plain">
+                    <a href="{{ url('/products/'.$product->id) }}">
                   <div class="col-md-6 ml-auto mr-auto">
                     <img src="{{ $product->featured_image_url }}" alt="Thumbnail Image" class="img-raised rounded-circle img-fluid">
                     <!-- $product->images()->first()->image -->
                   </div>
                   <h4 class="card-title">
-                    <a href="{{ url('/products/'.$product->id) }}">{{ $product->name }} </a>
+                      {{ $product->name }} 
                     <br>
-                    <small class="card-description text-muted">{{ $product->category->name }}</small> 
+                    <small class="card-description text-muted">{{ $product->category->name }}</small> <br>
+                    <small class="card-description text-muted">{{$product->base_quantity}} unidad x Bs.{{ $product->price }} </small>
                     <!-- $product->category->name -->
                   </h4>
                   <div class="card-body">
                     <p class="card-description">{{ $product->description }}</p>
                   </div>
-                  <!-- <div class="card-footer justify-content-center">
-                    <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-twitter"></i></a>
-                    <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-instagram"></i></a>
-                    <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-facebook-square"></i></a>
-                  </div> -->
+                    </a>
+          
                 </div>
               </div>
             </div>

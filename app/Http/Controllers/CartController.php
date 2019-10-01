@@ -2,55 +2,28 @@
 
 namespace App\Http\Controllers;
 
+use FarhanWazir\GoogleMaps\GMaps;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
 
-	/**
-	 * Metodo que muestra el contenido inicial hacia una vista
-	 * @return view
-	 */
-	public function index(){
-
-		return view('welcome');
-	}
-
-	/**
-	 * Muestra el formulario donde insertar un datos a un modelo de la BBDD
-	 * @return 
-	 */
-	public function create(){
-
-	}
-
-	/**
-	 * Metodo que inserta los datos de un modelo de la BBDD
-	 * @return 
-	 */
-	public function store(){
 	
-	}
-
 	/**
-	 * Metodo que devuelve el formulario para editar los datos de un modelo de la BBDD
+	 * Metodo CONVIERTE EL CARRITO EN UN PEDIDO
 	 * @return 
 	 */
-	public function edit(){
-	
-	}
+	public function convertCartrToOrder(){
 
-	/**
-	 * Metodo que actualiza los datos de un modelo de la BBDD
-	 * @return 
-	 */
-	public function update(){
-		$cart = auth()->user()->cart;
-		if($cart->details->count() > 0){
-			$cart->status = 'Pending';
-			$cart->save(); //update
+		$cart = auth()->user()['cart'];
+		if($cart['details']->count() > 0){
+			// $cart->status = 'Pending';
+			// $cart->save(); //update
 			$notification = 'Tu pedido se ha registrado correctamente. te contactaremos pronto via mail.';
-			$type='success';
+			// $type='success';
+			
+
+			return view('events.index')->with(compact('notification'));		
 		}else{
 			$type='info';
 			$notification = 'Debes registrar al menos un producto para realizar un pedido';
@@ -74,5 +47,7 @@ class CartController extends Controller
 	public function destroy(){
 	
 	}
+
+	
 
 }

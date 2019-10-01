@@ -9,6 +9,32 @@
 <div class="page-header header-filter" data-parallax="true" style="background-image: url('{{ asset('img/city-profile.jpg') }}')">
     
 </div>
+<!-- Classic Modal -->
+  <div class="modal fade" id="ModalProductAdd" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title text-center">Añadir producto al carrito de compras</h3>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <i class="material-icons">clear</i>
+          </button>
+        </div>
+        <form method="post" action="{{ url('/cart') }}">
+        	@csrf
+        	
+	        <div class="modal-body">
+	          <input type="number" name="quantity" class="form-control" value="1" required min="1">
+	          <input type="hidden" name="product_id" value="{{ $product->id }}">
+	        </div>
+	        <div class="modal-footer">
+	          <button type="button" class="btn btn-danger btn-link" data-dismiss="modal">Cancelar</button>
+	          <button type="submit" class="btn btn-link">Añadir al carrito</button>
+	        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!--  End Modal -->
 <!-- div-principal -->
 <div class="main main-raised">
 	<div class="profile-content">
@@ -150,31 +176,4 @@
 </div>
 <!-- footer -->
 @include('includes.footer')
-
 @endsection
- <!-- Classic Modal -->
-  <div class="modal fade" id="ModalProductAdd" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h3 class="modal-title text-center">Añadir producto al carrito de compras</h3>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <i class="material-icons">clear</i>
-          </button>
-        </div>
-        <form method="post" action="{{ url('/cart') }}">
-        	@csrf
-        	
-	        <div class="modal-body">
-	          <input type="number" name="quantity" class="form-control" value="1" required min="1">
-	          <input type="hidden" name="product_id" value="{{ $product->id }}">
-	        </div>
-	        <div class="modal-footer">
-	          <button type="button" class="btn btn-danger btn-link" data-dismiss="modal">Cancelar</button>
-	          <button type="submit" class="btn btn-link">Añadir al carrito</button>
-	        </div>
-        </form>
-      </div>
-    </div>
-  </div>
-  <!--  End Modal -->

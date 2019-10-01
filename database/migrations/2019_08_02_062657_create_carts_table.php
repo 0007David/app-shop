@@ -18,7 +18,7 @@ class CreateCartsTable extends Migration
 
             $table->date('order_date')->nullable();
             $table->date('arrived_date')->nullable();
-            $table->string('status'); // Active, Pending, Approved, Cancelled, Finished
+            $table->string('status'); // Active, Pending, Approved, Deny, Finished
 
             //Foreign Key user_id
             $table->unsignedBigInteger('user_id');
