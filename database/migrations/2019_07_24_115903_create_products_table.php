@@ -23,7 +23,7 @@ class CreateProductsTable extends Migration
             $table->integer('base_quantity')->nullable(); //cantidad_base 
             //nuevos atributos
             $table->bigInteger('stock')->nullable();  //cantidad total del producto
-            $table->bigInteger('busy_stock')->nullable(); //cantidad prestada en un servicio
+            $table->bigInteger('busy_stock')->default(0); //cantidad prestada en un servicio
 
             //Foreign Key
             $table->unsignedBigInteger('category_id')->nullable();

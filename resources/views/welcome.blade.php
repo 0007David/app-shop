@@ -81,7 +81,8 @@
                   <h4 class="card-title">
                       {{ $product->name }} 
                     <br>
-                    <small class="card-description text-muted">{{ $product->category->name }}</small> 
+                    <small class="card-description text-muted">{{ $product->category->name }}</small> <br>
+                    <small class="card-description text-muted">{{$product->base_quantity}} unidad x Bs.{{ $product->price }} </small>
                     <!-- $product->category->name -->
                   </h4>
                   <div class="card-body">
