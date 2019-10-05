@@ -63,7 +63,7 @@ class OrderController extends Controller
 
 		$order->state = 'Approved';
 		$order->cart->status = 'Approved';
-
+		$order->cart->save();
 		$order->save();
 		//Disminuir el stock del producto
 		$details = $order->cart->details;

@@ -82,7 +82,7 @@
     <div class="section text-center">
       <h2 class="title">Editar producto seleccionado</h2>
       <br><br>
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="##modalAddUnits" >Asignar cantidad</button>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalAddUnits" >Asignar cantidad</button>
       <br><br>
       <form method="post" action="{{ url('admin/products/'.$product->id.'/edit') }}">
         @csrf

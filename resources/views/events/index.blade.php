@@ -26,7 +26,7 @@
             <!-- Campo nombre -->
             <div class="form-group label-floating">
               <label for="name">Nombre de Evento</label>
-              <input type="text" class="form-control" id="name" name="name">
+              <input type="text" class="form-control" id="name" name="name" required>
             </div>
 
           </div>
@@ -35,7 +35,7 @@
             <!-- Campo Fecha -->
             <div class="form-group bmd-form-group is-filled">
 			    <label class="label-control bmd-label-static">Fecha y Hora</label>
-    	        <input type="text" class="form-control datetimepicker" name="date" value="{{ date('Ymd H:i:s') }}">
+    	        <input type="text" class="form-control datetimepicker" name="date" value="{{ date('Ymd H:i:s') }}" required>
             </div>
           </div>
 
@@ -43,7 +43,7 @@
             <!-- Campo Direccion -->
             <div class="form-group">
               <label for="address">Direccion</label>
-              <input type="text" class="form-control" id="address" name="address">
+              <input type="text" class="form-control" id="address" name="address" required>
             </div>
             <h4>Busque su ubicacion exacta, y pon el marcador en donde se realizara el evento ..</h4>
           </div>
@@ -75,7 +75,7 @@
               <label for="stock">monto Total Productos</label>
               <input type="text" class="form-control" id="direccion" name="total_amount" value="{{ auth()->user()->cart->amount }}" readonly>
               <input type="hidden" id="id_latitude" name="latitude" value="-17.841135" >
-              <input type="hidden" id="id_length" name="length" value="-63.110573">
+              <input type="hidden" id="id_length" name="length" value="-63.110573" >
               
     
             </div>

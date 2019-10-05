@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title','Listado de productos')
+@section('title','Pedidos')
 
 @section('body-class','profile-page sidebar-collapse')
 
@@ -22,7 +22,7 @@
             <table class="table table-striped tablas" style="width:100%">
                   <thead>
                       <tr>
-                          <th>Categorias</th>
+                          <th>Categoria</th>
                           <th>Nombre</th>
                           <th>Stock Disponible</th>
                           
@@ -40,17 +40,13 @@
                           
                       </tr>
                       @endforeach
-
-                     
                   </tbody>
 
               </table>
-
             
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-danger btn-link" data-dismiss="modal">Cancelar</button>
-            <button type="submit" class="btn btn-link">Añadir al carrito</button>
           </div>
       </div>
     </div>
@@ -77,7 +73,7 @@
                       <tr>
                           <th>Nombre</th>
                           <th>Cantidad</th>
-                          <th>Precion</th>
+                          <th>Precio</th>
                           <th>Monto</th>
                           
                       </tr>

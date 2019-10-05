@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title','Bienvenido a App-Shop')
+@section('title','Categorias')
 
 @section('body-class','profile-page sidebar-collapse')
 
@@ -24,7 +24,7 @@
             <!-- Campo nombre -->
             <div class="form-group">
               <label for="name">Nombre de categoria</label>
-              <input type="text" class="form-control" id="name" name="name" value="{{ $category->name }}" placeholder="Nombre del producto">
+              <input type="text" class="form-control" id="name" name="name" value="{{ $category->name }}" placeholder="Nombre del producto" required>
             </div>
           </div>
           <br>
@@ -32,7 +32,7 @@
             <!-- Campo Descripcion -->
             <div class="form-group">
               <label for="description">Descripcion del categoria</label>
-              <input type="text" class="form-control" id="description" name="description" value="{{ $category->description }}">
+              <input type="text" class="form-control" id="description" name="description" value="{{ $category->description }}" required>
             </div>
             <br>
           </div> 

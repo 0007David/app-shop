@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title','Listado de productos')
+@section('title','Listado de pedidos')
 
 @section('body-class','profile-page sidebar-collapse')
 
@@ -37,12 +37,12 @@
                     <td>{{ $order->event_date }}</td>
                     <td class="td-actions text-right">
                         
-                        <form style="display: inline" method="post" action="">
+                        <form style="display: inline">
                           @csrf
                         <a href="{{ url('admin/order/'.$order->id.'/edit') }}" data-toggle="tooltip" data-placement="top" title="Ver Pedido" class="btn btn-success btn-round btn-sm">
                             <i class="material-icons md-36">visibility</i>
                         </a>
-                          <button type="submit" data-toggle="tooltip" data-placement="top" title="Denegar Pedido" class="btn btn-danger btn-round btn-sm">
+                          <button data-toggle="tooltip" data-placement="top" title="Denegar Pedido" class="btn btn-danger btn-round btn-sm">
                               <i class="material-icons md-36">remove_shopping_cart</i>
                           </button>
                           

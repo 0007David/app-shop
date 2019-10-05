@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title','Bienvenido a App-Shop')
+@section('title','Categorias')
 
 @section('body-class','profile-page sidebar-collapse')
 
@@ -24,14 +24,14 @@
             <!-- Campo nombre -->
             <div class="form-group">
               <label for="name">Nombre de categoria</label>
-              <input type="text" class="form-control" id="name" name="name" placeholder="Nombre del categoria">
+              <input type="text" class="form-control" id="name" name="name" placeholder="Nombre del categoria" required>
             </div>
           </div> 
           <div class="offset-md-3 col-md-7">   
             <!-- Campo descripcion -->
             <div class="form-group">
               <label for="description">Description</label>
-              <input type="text" class="form-control" id="description" name="description" placeholder="Description.." maxlength="200">
+              <input type="text" class="form-control" id="description" name="description" placeholder="Description.." maxlength="200" required>
             </div>
           </div>
           <div class="offset-md-3 col-md-7">

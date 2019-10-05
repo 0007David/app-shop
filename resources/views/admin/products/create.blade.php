@@ -39,7 +39,7 @@
             <!-- Campo nombre -->
             <div class="form-group label-floating">
               <label for="name">Nombre de producto</label>
-              <input type="text" class="form-control" id="name" name="name">
+              <input type="text" class="form-control" id="name" name="name" required>
             </div>
 
           </div>
@@ -48,18 +48,18 @@
             <!-- Campo precio -->
             <div class="form-group">
               <label for="price">Precio</label>
-              <input type="number" step="0.01" class="form-control" id="price" name="price" min="0" value="">
+              <input type="number" step="0.01" class="form-control" id="price" name="price" min="0" value="" required>
             </div>
           </div>
           <div class="col-md-1">
-            <!-- Campo precio -->
+            <!-- Campo Cantidad -->
             <div class="form-group">
               <label for="base_quantity">Cantidad</label>
-              <input type="number" class="form-control" id="base_quantity" name="base_quantity" min="0" value="0">
+              <input type="number" class="form-control" id="base_quantity" name="base_quantity" min="0" value="0" required>
             </div>
           </div>
           <div class="col-md-1">
-            <!-- Campo precio -->
+            <!-- Campo Stock -->
             <div class="form-group">
               <label for="stock">Stock</label>
               <input type="number" class="form-control" id="stock" name="stock" min="0" value="0">
@@ -71,7 +71,7 @@
         <!-- Campo descripcion -->
         <div class="form-group offset-md-2 col-md-7" >
           <label for="description">Description corta</label>
-          <input type="text" class="form-control" id="description" name="description" placeholder="Description corta..." maxlength="200">
+          <input type="text" class="form-control" id="description" name="description" placeholder="Description corta..." maxlength="200" required>
         </div>
 
         <!-- Campo descripcion larga -->

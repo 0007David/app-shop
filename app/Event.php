@@ -7,8 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Event extends Model
 {
     
-    public function cart(){
-    	return $this->belongsTo(Cart::class);
+     public function cart()
+    {
+        return $this->belongsTo('App\Cart');
     }
 
     //Accesor

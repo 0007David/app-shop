@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title','Listado de productos')
+@section('title','Lista de eventos')
 
 @section('body-class','profile-page sidebar-collapse')
 
@@ -26,9 +26,6 @@
 		                      <tr>
 		                          <th>Nombre</th>
 		                          <th>Cantidad</th>
-		                          
-		                          
-		                          
 		                      </tr>
 		                  </thead>
 		                  <tbody>
@@ -71,9 +68,6 @@
 		        </div>
 			</div>
 		        <a href="{{ url('/admin/events') }}" class="btn btn-default">Atras</a>
-
-
-
     	</div>
     
   	</div>

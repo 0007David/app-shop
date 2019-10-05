@@ -18,5 +18,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/test','Api\LoginController@test');
+Route::get('event','Api\EventController@getEvent');
 Route::post('/login','Api\LoginController@login');
 

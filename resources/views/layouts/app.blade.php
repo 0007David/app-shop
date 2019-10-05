@@ -154,13 +154,9 @@
    <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
    <script src="{{ asset('/js/plugins/nouislider.min.js') }}"  type="text/javascript"></script>
 
-  <!-- fullCalendar -->
-  <!-- <script src="{{ asset('/js/plugins/moment.min.js') }}"></script> -->
-  <!-- <script src="{{ asset('/js/plugins/fullcalendar.min.js') }}"></script> -->
-  
    <!--  Google Maps Plugin    -->
    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script> -->
-   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBC6Gssuae_XhHbInazo35mIcpIY3xXAJw&callback=initMap"> 
+   <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBC6Gssuae_XhHbInazo35mIcpIY3xXAJw&callback=initMap">  -->
     </script>
    <!-- Jquery Sharree btn -->
    <script src="{{ asset('/js/plugins/jquery.sharrre.js') }}" type="text/javascript"></script>

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title','Listado de productos')
+@section('title','Eventos')
 
 @section('body-class','profile-page sidebar-collapse')
 
