@@ -18,7 +18,7 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         // $user = DB::table('users')->where('email',$request->email)->first();
-        $user = User::all()->where('email','juan@gmail.com')->first();
+        $user = User::all()->where('email',$request->email)->first();
         $answer = Array();
 
         if( $user != null){
