@@ -210,7 +210,7 @@
                     <div class="tab-pane" id="updates">
                        <h2>Formulario Tarjeta de Credito</h2>
                       
-                      <form  >
+                      <form  method="post" action="{{ url('/stripepay') }}">
                         @csrf
                         <div class='row'>
                             <div class='offset-md-3 col-md-6 required'>
@@ -246,6 +246,7 @@
                               <br>
                                 <div class='total btn btn-info'>
                                   <input type="hidden" value="{{ auth()->user()->carts->where('status','Approved')->first()->event->amount_to_pay }}" name="amount" required>
+                                  <input type="hidden" name="cart_id" value="{{auth()->user()->carts->where('status','Approved')->first()->id}}">
                                     Total: <span class='amount'>{{ auth()->user()->carts->where('status','Approved')->first()->event->amount_to_pay }}</span>
                                 </div>
                             </div>

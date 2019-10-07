@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Payment;
+use App\Cart;
 
 class StripePayController extends Controller
 {
@@ -25,5 +27,22 @@ class StripePayController extends Controller
 	    }
 
 
+    }
+
+    public function payWithStripe2(Request $request){
+
+    	$cart=Cart::find($request->cart_id);
+    	// Insertando el Pago
+			$pay = new Payment();
+			$pay->amount = $request->amount;
+			$pay->type = "Stripe";
+			$pay->user_id = auth()->user()->id;
+			$pay->event_id = $cart->event->id;
+			$pay->save();
+
+		$notification = 'Su pago por tajeta de debito ha sido exitoso!';
+		$type='info';
+
+		return redirect('/home')->with(compact('notification','type'));
     }
 }

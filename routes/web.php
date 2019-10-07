@@ -36,6 +36,7 @@ Route::post('/event/store', 'EventController@store');
 Route::post('/paypal', 'PaymentController@payWithpaypal');
 Route::get('status','PaymentController@getPaymentStatus');
 // Route::post('/stripepay', 'StripePayController@payWithStripe');
+Route::post('/stripepay', 'StripePayController@payWithStripe2');
 
 Route::get('/mapa', function(){
     $config = array();
