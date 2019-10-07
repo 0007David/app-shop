@@ -9,8 +9,8 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6">
-          <h1 class="title">Bienbenido a App Shop</h1>
-          <h4>Realiza tus pedidos en línea y te contactaremos para coordinar la entrega hasta la puerta de tu casa.</h4>
+          <h1 class="title">Bienvenido App Shop</h1>
+          <h4>Realiza tus pedidos en línea y te contactaremos para coordinar para entregar tus productos para tu evento o acontecimiento.</h4>
           <br>
           <a href="https://www.youtube.com/watch?v=oofSnsGkops&list=RDoofSnsGkops&start_radio=1" target="_blank" class="btn btn-danger btn-raised btn-lg">
             <i class="fa fa-play"></i> ¿Cómo funciona?
@@ -28,7 +28,7 @@
           <div class="row">
               <div class="col-md-8 ml-auto mr-auto">
                   <h2 class="title">¿Por qué App Shop?</h2>
-                  <h5 class="description">Puedes revisar nuestros catalogos completos de productos, comprarar precios y realizar tus pedidos cuando estes seguro de una buena compra... </h5>
+                  <h5 class="description">Puedes revisar nuestros catalogos completos de productos como sillas, mesas, amplificaion,etc. Alquilar al mejor precios y realizar tus pedidos cuando estes seguro....</h5>
               </div>
           </div>
       <div class="features">

@@ -43,6 +43,11 @@ class User extends Authenticatable
         return $this->hasMany(Cart::class);
     }
 
+    public function payments(){
+
+        return $this->hasMany(Payment::class);
+
+    }
     //Definicion de un accesor
     public function getCartAttribute(){
 
@@ -56,5 +61,22 @@ class User extends Authenticatable
         $cart->save();
 
         return $cart;
+    }
+
+    public function getDebitAttribute(){
+        if($this->carts()->where('status','Approved')->count() > 0){
+
+            $payments = $this->carts->where('status','Approved')->first()->event->payments;
+            $costoDelEvento = $this->carts->where('status','Approved')->first()->event->total_cost;
+            
+            $montoPagado=0;
+            foreach ($payments as $key => $payment) {
+                $montoPagado= $montoPagado + $payment->amount;
+            }
+
+            return $costoDelEvento - $montoPagado;
+        }
+        return 0;
+
     }
 }
