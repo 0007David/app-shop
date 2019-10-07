@@ -35,6 +35,7 @@ Route::post('/event/store', 'EventController@store');
 //PAGOS ONLINE
 Route::post('/paypal', 'PaymentController@payWithpaypal');
 Route::get('status','PaymentController@getPaymentStatus');
+// Route::post('/stripepay', 'StripePayController@payWithStripe');
 
 Route::get('/mapa', function(){
     $config = array();

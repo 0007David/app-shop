@@ -189,7 +189,7 @@
                     <div class="tab-pane" id="home">
                       <h2>Formulario PayPal</h2>
                       
-                      <form method="post" id="payment-form" action="{{ url('paypal/') }}">
+                      <form method="post" action="{{ url('paypal/') }}">
                         @csrf
                         <div class="row">
                           <div class="offset-md-3 col-md-6">
@@ -197,7 +197,7 @@
                           @if(!auth()->user()->admin && auth()->user()->carts->where('status','Approved')->count() > 0)
                             <div class="form-group">
                               <label for="amount">Ingrese Monto a pagar</label>
-                              <input type="number" min="{{auth()->user()->carts->where('status','Approved')->first()->event->amount_to_pay }}" value="{{ auth()->user()->carts->where('status','Approved')->first()->event->amount_to_pay }}" class="form-control" id="amount" name="amount" value="" required>
+                              <input type="number" min="{{auth()->user()->carts->where('status','Approved')->first()->event->amount_to_pay }}" value="{{ auth()->user()->carts->where('status','Approved')->first()->event->amount_to_pay }}" class="form-control" id="amount" name="amount" required>
                               <input type="hidden" name="cart_id" value="{{auth()->user()->carts->where('status','Approved')->first()->id}}">
                             </div>
                           @endif
@@ -210,24 +210,63 @@
                     <div class="tab-pane" id="updates">
                        <h2>Formulario Tarjeta de Credito</h2>
                       
-                      <form  id="payment-form">
+                      <form  >
                         @csrf
-                        <div class="row">
-                          <div class="offset-md-3 col-md-7">
-                            <!-- Campo Monto -->
-                            <div class="form-group">
-                              <label for="amount">Ingrese Monto</label>
-                              <input type="text" class="form-control" id="amount" name="amount" value="" required>
-                            </div>
-                          </div>
-                          <br>
-                          
-          
-                        </div>
-                        <br>
+                        <div class='row'>
+                            <div class='offset-md-3 col-md-6 required'>
+                                <label class='control-label'>Nombre del Titular de Tarjeta</label> <input
+                                    class='form-control' size='4' type='text' required>
 
-                        <button class="btn btn-info">Guardar cambios</button>
+
+                            </div>
+                            <div class='offset-md-3 col-md-6 card required'>
+                                <label class='control-label'>Numero de Tarjeta</label> <input
+                                    autocomplete='off' class='form-control card-number' size='20'
+                                    type='text'>
+                            </div>
+                            
+                              <div class='offset-md-3 col-md-2 cvc required'>
+                                <label class='control-label'>CVC</label> <input autocomplete='off'
+                                    class='form-control card-cvc' placeholder='ex. 311' size='4'
+                                    type='text'>
+                            </div>
+                            <div class='col-md-2 expiration required'>
+                                <label class='control-label'>Expiration</label> <input
+                                    class='form-control card-expiry-month' placeholder='MM' size='2'
+                                    type='text'>
+                            </div>
+                            <div class='col-md-2 expiration required'>
+                                <label class='control-label'> </label> <input
+                                    class='form-control card-expiry-year' placeholder='YYYY' size='4'
+                                    type='text'>
+                            </div>
+                            
+                            @if(!auth()->user()->admin && auth()->user()->carts->where('status','Approved')->count() > 0)
+                            <div class='offset-md-4 col-md-4'>
+                              <br>
+                                <div class='total btn btn-info'>
+                                  <input type="hidden" value="{{ auth()->user()->carts->where('status','Approved')->first()->event->amount_to_pay }}" name="amount" required>
+                                    Total: <span class='amount'>{{ auth()->user()->carts->where('status','Approved')->first()->event->amount_to_pay }}</span>
+                                </div>
+                            </div>
+                            <div class='offset-md-4 col-md-4'>
+                                <button class='btn btn-success submit-button'
+                                    type='submit' style="margin-top: 10px;">
+                                    <i class="material-icons md-36">attach_money</i>
+                                  Pay »</button>
+                            </div>
+                            @endif
+                        <!-- <div class='form-row'>
+                            <div class='col-md-12 error form-group hide'>
+                                <div class='alert-danger alert'>Please correct the errors and try
+                                    again.</div>
+                            </div>
+                        </div> -->
                         
+
+                        </div>
+                       
+                  
                         
                       </form>
                     </div>
@@ -273,12 +312,67 @@
     </div>
     
   </div>
-
-
-
 </div>
 
 <!-- footer -->
 @include('includes.footer')
+<script>
+  $(function() {
+  $('form.require-validation').bind('submit', function(e) {
+    var $form         = $(e.target).closest('form'),
+        inputSelector = ['input[type=email]', 'input[type=password]',
+                         'input[type=text]', 'input[type=file]',
+                         'textarea'].join(', '),
+        $inputs       = $form.find('.required').find(inputSelector),
+        $errorMessage = $form.find('div.error'),
+        valid         = true;
+ 
+    $errorMessage.addClass('hide');
+    $('.has-error').removeClass('has-error');
+    $inputs.each(function(i, el) {
+      var $input = $(el);
+      if ($input.val() === '') {
+        $input.parent().addClass('has-error');
+        $errorMessage.removeClass('hide');
+        e.preventDefault(); // cancel on first error
+      }
+    });
+  });
+});
+
+$(function() {
+  var $form = $("#payment-form");
+
+  $form.on('submit', function(e) {
+    if (!$form.data('cc-on-file')) {
+      e.preventDefault();
+      Stripe.setPublishableKey($form.data('stripe-publishable-key'));
+      Stripe.createToken({
+        number: $('.card-number').val(),
+        cvc: $('.card-cvc').val(),
+        exp_month: $('.card-expiry-month').val(),
+        exp_year: $('.card-expiry-year').val()
+      }, stripeResponseHandler);
+    }
+  });
+
+  function stripeResponseHandler(status, response) {
+    if (response.error) {
+      $('.error')
+        .removeClass('hide')
+        .find('.alert')
+        .text(response.error.message);
+    } else {
+      // token contains id, last4, and card type
+      var token = response['id'];
+      // insert the token into the form so it gets submitted to the server
+      $form.find('input[type=text]').empty();
+      $form.append("<input type='hidden' name='reservation[stripe_token]' value='" + token + "'/>");
+      $form.get(0).submit();
+    }
+  }
+})
+
+</script>
 
 @endsection
