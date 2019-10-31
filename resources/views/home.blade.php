@@ -214,21 +214,17 @@
                         @csrf
                         <div class='row'>
                             <div class='offset-md-3 col-md-6 required'>
-                                <label class='control-label'>Nombre del Titular de Tarjeta</label> <input
-                                    class='form-control' size='4' type='text' required>
-
-
+                                <label class='control-label'>Nombre del Titular de Tarjeta</label> 
+                                <input class='form-control' size='4' type='text' required> 
                             </div>
                             <div class='offset-md-3 col-md-6 card required'>
-                                <label class='control-label'>Numero de Tarjeta</label> <input
-                                    autocomplete='off' class='form-control card-number' size='20'
-                                    type='text'>
+                                <label class='control-label'>Numero de Tarjeta</label> 
+                                <input autocomplete='off' class='form-control card-number' size='20' type='text'>
                             </div>
                             
                               <div class='offset-md-3 col-md-2 cvc required'>
-                                <label class='control-label'>CVC</label> <input autocomplete='off'
-                                    class='form-control card-cvc' placeholder='ex. 311' size='4'
-                                    type='text'>
+                                <label class='control-label'>CVC</label> 
+                                <input autocomplete='off' class='form-control card-cvc' placeholder='ex. 311' size='4' type='text'>
                             </div>
                             <div class='col-md-2 expiration required'>
                                 <label class='control-label'>Expiration</label> <input

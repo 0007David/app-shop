@@ -1,20 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
-
+    
 <head>
    <meta charset="utf-8" />
-   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+   <link rel="apple-touch-icon" sizes="76x76" href="{{asset('img/apple-icon.png')}}">
+   <link rel="icon" type="image/png" href="{{asset('img/favicon.png')}}">
    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
    <title> @yield('title','App Shop')</title>
    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
    <!--     Fonts and icons     -->
    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-       <!-- Plugin FullCallender -->
- <!--  <link rel="stylesheet" href="{{ asset('css/fullcalendar.min.css') }}">
-  <link rel="stylesheet" href="{{ asset('css/fullcalendar.print.min.css') }}" media="print">
-  <link rel="stylesheet" href="{{ asset('css/AdminLTE.min.css') }}" media="print"> -->
+
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.css' />
    <!-- CSS Files -->
    <link href="{{ asset('css/material-kit.css') }}" rel="stylesheet" />
@@ -22,16 +19,16 @@
    <!-- DataTable -->
    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"/>
    
-   <link href="{{url('packages/core/main.css')}}" rel="stylesheet" />
-    <link href="{{url('packages/daygrid/main.css')}}" rel="stylesheet" />
-    <link href="{{url('packages/timegrid/main.css')}}" rel="stylesheet" />
-    <link href="{{url('packages/list/main.css')}}" rel="stylesheet" />
+   <link href="{{asset('packages/core/main.css')}}" rel="stylesheet" />
+    <link href="{{asset('packages/daygrid/main.css')}}" rel="stylesheet" />
+    <link href="{{asset('packages/timegrid/main.css')}}" rel="stylesheet" />
+    <link href="{{asset('packages/list/main.css')}}" rel="stylesheet" />
 
-    <script src="{{url('packages/core/main.js')}}"></script>
-    <script src="{{url('packages/interaction/main.js')}}"></script>
-    <script src="{{url('packages/daygrid/main.js')}}"></script>
-    <script src="{{url('packages/timegrid/main.js')}}"></script>
-    <script src="{{url('packages/list/main.js')}}"></script>
+    <script src="{{asset('packages/core/main.js')}}"></script>
+    <script src="{{asset('packages/interaction/main.js')}}"></script>
+    <script src="{{asset('packages/daygrid/main.js')}}"></script>
+    <script src="{{asset('packages/timegrid/main.js')}}"></script>
+    <script src="{{asset('packages/list/main.js')}}"></script>
 
 
 

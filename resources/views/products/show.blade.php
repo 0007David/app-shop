@@ -44,7 +44,7 @@
 				<div class="col-md-6 ml-auto mr-auto">
 					<div class="profile">
 						<div class="avatar">
-					    	<img src="{{ $product->featured_image_url }}" alt="Circle Image" class="img-raised rounded-circle img-fluid">
+					    	<img src="{{ asset($product->featured_image_url) }}" alt="Circle Image" class="img-raised rounded-circle img-fluid">
 						</div>
 
 

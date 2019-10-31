@@ -75,7 +75,7 @@
                 <div class="card card-plain">
                     <a href="{{ url('/products/'.$product->id) }}">
                   <div class="col-md-6 ml-auto mr-auto">
-                    <img src="{{ $product->featured_image_url }}" alt="Thumbnail Image" class="img-raised rounded-circle img-fluid">
+                    <img src="{{ asset($product->featured_image_url) }}" alt="Thumbnail Image" class="img-raised rounded-circle img-fluid">
                     <!-- $product->images()->first()->image -->
                   </div>
                   <h4 class="card-title">

@@ -9,8 +9,8 @@ use App\Cart;
 class StripePayController extends Controller
 {
     
-
     public function payWithStripe(Request $request){
+    	
 	    \Stripe\Stripe::setApiKey ('sk_test_jyAxWeaL9IfS3Nl0VFboqjmy00vtaZelsM');
 	    try {
 	        \Stripe\Charge::create ( array (
@@ -22,7 +22,7 @@ class StripePayController extends Controller
 	        Session::flash ( 'success-message', 'Payment done successfully !' );
 	        return Redirect::back ();
 	    } catch ( \Exception $e ) {
-	        Session::flash ( 'fail-message', "Error! Please Try again." );
+	        Session::flash ( $e.message(),' fail-message', "Error! Please Try again." );
 	        return Redirect::back ();
 	    }
 

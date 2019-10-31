@@ -6,8 +6,8 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable
-{
+class User extends Authenticatable {
+
     use Notifiable;
 
     /**
@@ -38,21 +38,21 @@ class User extends Authenticatable
     ];
 
     //Definiendo Relacion entre usuario y Cart 1 --> *
-    public function carts(){
+    public function carts() {
 
         return $this->hasMany(Cart::class);
     }
 
-    public function payments(){
+    public function payments() {
 
         return $this->hasMany(Payment::class);
-
     }
-    //Definicion de un accesor
-    public function getCartAttribute(){
 
-        $cart = $this->carts()->where('status','Active')->first();
-        if($cart)
+    //Definicion de un accesor
+    public function getCartAttribute() {
+
+        $cart = $this->carts()->where('status', 'Active')->first();
+        if ($cart)
             return $cart;
 
         $cart = new Cart();
@@ -63,20 +63,20 @@ class User extends Authenticatable
         return $cart;
     }
 
-    public function getDebitAttribute(){
-        if($this->carts()->where('status','Approved')->count() > 0){
+    public function getDebitAttribute() {
+        if ($this->carts()->where('status', 'Approved')->count() > 0) {
 
-            $payments = $this->carts->where('status','Approved')->first()->event->payments;
-            $costoDelEvento = $this->carts->where('status','Approved')->first()->event->total_cost;
-            
-            $montoPagado=0;
+            $payments = $this->carts->where('status', 'Approved')->first()->event->payments;
+            $costoDelEvento = $this->carts->where('status', 'Approved')->first()->event->total_cost;
+
+            $montoPagado = 0;
             foreach ($payments as $key => $payment) {
-                $montoPagado= $montoPagado + $payment->amount;
+                $montoPagado = $montoPagado + $payment->amount;
             }
 
             return $costoDelEvento - $montoPagado;
         }
         return 0;
-
     }
+
 }
